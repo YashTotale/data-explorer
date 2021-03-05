@@ -1,10 +1,8 @@
 import java.io.File;
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CerealFileProcessor {
-    // We will store a List of Cereal Objects in this list
     private ArrayList<Cereal> cereals = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -12,8 +10,6 @@ public class CerealFileProcessor {
         Scanner scan = fp.exploreFile(System.getProperty("user.dir") + "/data/Cereal.csv");
         fp.processCereal(scan);
 
-        // solves some problems, like cereal with the most sugar,
-        // fewest calories, etc.  You can make up your own
         fp.exploreCereal();
     }
 
@@ -57,29 +53,39 @@ public class CerealFileProcessor {
         scan.close();
     }
 
-    /**
-     * Explores the cereals that were input from the file.
-     * You will find the Cereal with the most calories, least salt, etc.
-     * Make up some attribute to explore.
-     */
     private void exploreCereal() {
-        // for starters, find the Cereal with the most calories, least sugar, highest rating, etc.
-        sortByCalories();
-        System.out.println("Lowest calories: " + cereals.get(0));
-        System.out.println("Highest calories: " + cereals.get(cereals.size() - 1));
+        String[] sortInts = {Cereal.SODIUM, Cereal.PROTEIN, Cereal.FAT, Cereal.CALORIES};
 
-        sortByRating();
-        System.out.println(cereals);
-        // now get the highest and lowest rated cereals
+        for (String toSort : sortInts) {
+            // Doing selection sort for ints (can change this without breaking, but change the casting as well)
+            selectionSort(toSort);
+            printRank(toSort);
+        }
 
+        String[] sortDoubles = {Cereal.RATING, Cereal.CUPS, Cereal.WEIGHT, Cereal.CARBOHYDRATES, Cereal.FIBER};
+
+        for (String toSort : sortDoubles) {
+            // Doing insertion sort for doubles (can change this without breaking, but change the casting as well)
+            insertionSort(toSort);
+            printRank(toSort);
+        }
     }
 
-    private void sortByCalories() {
+    private void printRank(String key) {
+        Cereal lowest =  cereals.get(0);
+        System.out.println("Lowest " + key + ": " + lowest.getName() + " (" + lowest.get(key) + ")");
+
+        Cereal highest = cereals.get(cereals.size() - 1);
+        System.out.println("Highest " + key + ": " + highest.getName()  + " (" + highest.get(key) + ")");
+        System.out.println();
+    }
+
+    private void selectionSort(String key) {
         for (int i = 0; i < cereals.size() - 1; i++) {
-            int smallestCalories = cereals.get(i).getCalories();
+            int smallestCalories = (int) cereals.get(i).get(key);
             int smallestIndex = i;
             for (int x = i + 1; x < cereals.size(); x++) {
-                int cals = cereals.get(x).getCalories();
+                int cals = (int) cereals.get(x).get(key);
                 if (cals < smallestCalories) {
                     smallestIndex = x;
                     smallestCalories = cals;
@@ -91,17 +97,13 @@ public class CerealFileProcessor {
         }
     }
 
-    /**
-     * For this sort, try to implement an insertionsort
-     * AVOID looking at code for the sort.
-     */
-    private void sortByRating() {
-        for(int i = 1; i < cereals.size(); i++) {
-            double rating = cereals.get(i).getRating();
+    private void insertionSort(String key) {
+        for (int i = 1; i < cereals.size(); i++) {
+            double rating = (double) cereals.get(i).get(key);
             int x = i;
-            for(; x > 0; x--) {
-                double currRating = cereals.get(x - 1).getRating();
-                if(rating > currRating) break;
+            for (; x > 0; x--) {
+                double currRating = (double) cereals.get(x - 1).get(key);
+                if (rating > currRating) break;
             }
             cereals.add(x, cereals.remove(i));
         }
