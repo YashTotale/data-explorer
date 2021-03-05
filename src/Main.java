@@ -17,5 +17,6 @@ class Main {
         CerealFileProcessor.main(args);
         section("Congress Processing!");
         CongressFileProcessor.main(args);
+        line();
     }
 }

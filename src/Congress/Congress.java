@@ -39,9 +39,11 @@ public class Congress extends BaseEntity {
                 case TERM_START:
                 case BIRTHDAY: {
                     value = new SimpleDateFormat("yyyy-MM-dd").parse((String) value);
+                    break;
                 }
                 case INCUMBENT: {
-                    value = value == "Yes";
+                    value = value.equals("Yes");
+                    break;
                 }
             }
             c.add(key, value);

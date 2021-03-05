@@ -20,7 +20,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
         while (this.scan.hasNext()) {
             String line = this.scan.nextLine();
             if (i > 0) {
-                BaseFileProcessor.entities.add(Cereal.parseString(line));
+                this.entities.add(Cereal.parseString(line));
             } else {
                 Cereal.setDataKeys(line);
             }
@@ -34,15 +34,15 @@ public class CerealFileProcessor extends BaseFileProcessor {
 
         for (String toSort : sortInts) {
             // Doing selection sort for ints (can change this, but have to change the casting as well)
-            BaseFileProcessor.selectionSort(toSort);
-            printRank(toSort);
+            this.selectionSort(toSort);
+            this.printRank(toSort);
         }
 
         String[] sortDoubles = {Cereal.RATING, Cereal.CUPS, Cereal.WEIGHT, Cereal.CARBOHYDRATES, Cereal.FIBER};
 
         for (String toSort : sortDoubles) {
             // Doing insertion sort for doubles (can change this, but have to change the casting as well)
-            BaseFileProcessor.insertionSort(toSort);
+            this.insertionSort(toSort);
             printRank(toSort);
         }
     }
