@@ -1,12 +1,8 @@
-import java.util.HashMap;
-
 /**
  * - Originally constructed with individual variables for each field
  * - Changed to a HashMap for conciseness and maintainability
  */
-public class Cereal {
-    private static String[] dataKeys;
-    public static final String NAME = "Name";
+public class Cereal extends BaseEntity {
     public static final String TYPE = "Type";
     public static final String SODIUM = "Sodium";
     public static final String FAT = "Fat";
@@ -17,16 +13,6 @@ public class Cereal {
     public static final String WEIGHT = "Weight";
     public static final String CARBOHYDRATES = "Carbohydrates";
     public static final String FIBER = "Fiber";
-
-    private HashMap<String, Object> values = new HashMap<>();
-
-    public void add(String key, Object value) {
-        values.put(key, value);
-    }
-
-    public Object get(String key) {
-        return values.get(key);
-    }
 
     public static Cereal parseString(String s) {
         String[] values = s.split(",");
@@ -58,19 +44,6 @@ public class Cereal {
             c.add(key, value);
         }
         return c;
-    }
-
-    public static void setDataKeys(String s) {
-        dataKeys = s.split(",");
-    }
-
-    @Override
-    public String toString() {
-        return values.toString();
-    }
-
-    public String getName() {
-        return (String) this.get(Cereal.NAME);
     }
 
     public boolean getType() {
