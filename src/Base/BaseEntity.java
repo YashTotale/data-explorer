@@ -1,3 +1,5 @@
+package Base;
+
 import java.util.HashMap;
 
 public class BaseEntity {

@@ -1,3 +1,7 @@
+package Cereal;
+
+import Base.BaseEntity;
+
 /**
  * - Originally constructed with individual variables for each field
  * - Changed to a HashMap for conciseness and maintainability
@@ -17,8 +21,8 @@ public class Cereal extends BaseEntity {
     public static Cereal parseString(String s) {
         String[] values = s.split(",");
         Cereal c = new Cereal();
-        for(int i = 0; i < dataKeys.length; i++) {
-            String key = dataKeys[i];
+        for(int i = 0; i < BaseEntity.dataKeys.length; i++) {
+            String key = BaseEntity.dataKeys[i];
             Object value = values[i];
             switch (key) {
                 case TYPE: {

@@ -1,3 +1,5 @@
+import Cereal.CerealFileProcessor;
+
 class Main {
     public static void line() {
         System.out.println("-----");
@@ -8,7 +10,7 @@ class Main {
         System.out.println();
     }
     public static void main(String[] args) {
-        section("Cereal Processing!");
+        section("Cereal.Cereal Processing!");
         CerealFileProcessor.main(args);
     }
 }

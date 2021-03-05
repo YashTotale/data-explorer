@@ -1,3 +1,7 @@
+package Cereal;
+
+import Base.BaseFileProcessor;
+
 public class CerealFileProcessor extends BaseFileProcessor {
     public static void main(String[] args) {
         CerealFileProcessor fp = new CerealFileProcessor();
@@ -8,7 +12,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
     }
 
     /**
-     * Inputs the contents from the Scanner and adds new Cereal objects
+     * Inputs the contents from the Scanner and adds new Cereal.Cereal objects
      * for each line in the source that is being scanned.
      */
     private void processCereal() {
@@ -16,7 +20,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
         while (this.scan.hasNext()) {
             String line = this.scan.nextLine();
             if (i > 0) {
-                this.entities.add(Cereal.parseString(line));
+                BaseFileProcessor.entities.add(Cereal.parseString(line));
             } else {
                 Cereal.setDataKeys(line);
             }
@@ -30,7 +34,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
 
         for (String toSort : sortInts) {
             // Doing selection sort for ints (can change this without breaking, but change the casting as well)
-            selectionSort(toSort);
+            BaseFileProcessor.selectionSort(toSort);
             printRank(toSort);
         }
 
@@ -38,7 +42,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
 
         for (String toSort : sortDoubles) {
             // Doing insertion sort for doubles (can change this without breaking, but change the casting as well)
-            insertionSort(toSort);
+            BaseFileProcessor.insertionSort(toSort);
             printRank(toSort);
         }
     }
