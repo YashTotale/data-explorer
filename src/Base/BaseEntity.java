@@ -7,11 +7,11 @@ public class BaseEntity {
     protected static final String NAME = "Name";
     protected HashMap<String, Object> values = new HashMap<>();
 
-    public void add(String key, Object value) {
+    protected void add(String key, Object value) {
         values.put(key, value);
     }
 
-    public Object get(String key) {
+    protected Object get(String key) {
         return values.get(key);
     }
 
@@ -19,8 +19,7 @@ public class BaseEntity {
         dataKeys = s.split(",");
     }
 
-
-    public String getName() {
+    protected String getName() {
         return (String) this.get(BaseEntity.NAME);
     }
 

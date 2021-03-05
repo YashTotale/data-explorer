@@ -23,7 +23,7 @@ public class BaseFileProcessor {
         }
     }
 
-    public static void selectionSort(String key) {
+    protected static void selectionSort(String key) {
         for (int i = 0; i < entities.size() - 1; i++) {
             int smallestCalories = (int) entities.get(i).get(key);
             int smallestIndex = i;
@@ -40,7 +40,7 @@ public class BaseFileProcessor {
         }
     }
 
-    public static void insertionSort(String key) {
+    protected static void insertionSort(String key) {
         for (int i = 1; i < entities.size(); i++) {
             double rating = (double) entities.get(i).get(key);
             int x = i;

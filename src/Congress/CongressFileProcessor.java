@@ -2,8 +2,10 @@ package Congress;
 
 import Base.BaseFileProcessor;
 
+import java.text.ParseException;
+
 public class CongressFileProcessor extends BaseFileProcessor {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         CongressFileProcessor fp = new CongressFileProcessor();
         fp.exploreFile(System.getProperty("user.dir") + "/data/Congress.csv");
         fp.processCongress();
@@ -15,7 +17,7 @@ public class CongressFileProcessor extends BaseFileProcessor {
      * Inputs the contents from the Scanner and adds new Congress objects
      * for each line in the source that is being scanned.
      */
-    private void processCongress() {
+    private void processCongress() throws ParseException {
         int i = 0;
         while (this.scan.hasNext()) {
             String line = this.scan.nextLine();

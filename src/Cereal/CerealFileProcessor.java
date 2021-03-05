@@ -33,7 +33,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
         String[] sortInts = {Cereal.SODIUM, Cereal.PROTEIN, Cereal.FAT, Cereal.CALORIES};
 
         for (String toSort : sortInts) {
-            // Doing selection sort for ints (can change this without breaking, but change the casting as well)
+            // Doing selection sort for ints (can change this, but have to change the casting as well)
             BaseFileProcessor.selectionSort(toSort);
             printRank(toSort);
         }
@@ -41,7 +41,7 @@ public class CerealFileProcessor extends BaseFileProcessor {
         String[] sortDoubles = {Cereal.RATING, Cereal.CUPS, Cereal.WEIGHT, Cereal.CARBOHYDRATES, Cereal.FIBER};
 
         for (String toSort : sortDoubles) {
-            // Doing insertion sort for doubles (can change this without breaking, but change the casting as well)
+            // Doing insertion sort for doubles (can change this, but have to change the casting as well)
             BaseFileProcessor.insertionSort(toSort);
             printRank(toSort);
         }

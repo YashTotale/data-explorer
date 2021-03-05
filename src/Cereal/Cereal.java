@@ -51,42 +51,42 @@ public class Cereal extends BaseEntity {
     }
 
     public boolean getType() {
-        return (boolean) this.get(Cereal.TYPE);
+        return (boolean) this.get(TYPE);
     }
 
     public int getSodium() {
-        return (int) this.get(Cereal.SODIUM);
+        return (int) this.get(SODIUM);
     }
 
     public int getFat() {
-        return (int) this.get(Cereal.FAT);
+        return (int) this.get(FAT);
     }
 
     public int getProtein() {
-        return (int) this.get(Cereal.PROTEIN);
+        return (int) this.get(PROTEIN);
     }
 
     public int getCalories() {
-        return (int) this.get(Cereal.CALORIES);
+        return (int) this.get(CALORIES);
     }
 
     public double getRating() {
-        return (double) this.get(Cereal.RATING);
+        return (double) this.get(RATING);
     }
 
     public double getCups() {
-        return (double) this.get(Cereal.CUPS);
+        return (double) this.get(CUPS);
     }
 
     public double getWeight() {
-        return (double) this.get(Cereal.WEIGHT);
+        return (double) this.get(WEIGHT);
     }
 
     public double getCarbohydrates() {
-        return (double) this.get(Cereal.CARBOHYDRATES);
+        return (double) this.get(CARBOHYDRATES);
     }
 
     public double getFiber() {
-        return (double) this.get(Cereal.FIBER);
+        return (double) this.get(FIBER);
     }
 }
