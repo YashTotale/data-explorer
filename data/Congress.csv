@@ -1,4 +1,4 @@
-congress,chamber,bioguide,firstname,middlename,lastname,suffix,birthday,state,party,incumbent,termstart,age
+Congress,Chamber,Bio Guide,First Name,Middle Name,Last Name,Suffix,Birthday,State,Party,Incumbent,Term Start,Age
 80,house,M000112,Joseph,Jefferson,Mansfield,,1861-02-09,TX,D,Yes,1947-01-03,85.9
 80,house,D000448,Robert,Lee,Doughton,,1863-11-07,NC,D,Yes,1947-01-03,83.2
 80,house,S000001,Adolph,Joachim,Sabath,,1866-04-04,IL,D,Yes,1947-01-03,80.7

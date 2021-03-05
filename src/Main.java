@@ -1,4 +1,5 @@
 import Cereal.CerealFileProcessor;
+import Congress.CongressFileProcessor;
 
 class Main {
     public static void line() {
@@ -10,7 +11,9 @@ class Main {
         System.out.println();
     }
     public static void main(String[] args) {
-        section("Cereal.Cereal Processing!");
+        section("Cereal Processing!");
         CerealFileProcessor.main(args);
+        section("Congress Processing!");
+        CongressFileProcessor.main(args);
     }
 }
